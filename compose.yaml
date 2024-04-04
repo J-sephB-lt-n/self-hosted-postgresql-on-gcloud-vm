@@ -1,0 +1,12 @@
+services:
+  python:
+    build: .
+    ports:
+      - "8000:5000"
+  db:
+    image: postgres
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: securepassword
